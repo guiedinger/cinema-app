@@ -1,5 +1,5 @@
-import React from 'react';
-import { useHistory } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useHistory, useLocation } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -19,14 +19,22 @@ const useStyles = makeStyles({
 export default () => {
   const classes = useStyles();
   const history = useHistory();
+  const location = useLocation();
   const [value, setValue] = React.useState('/');
+
+  useEffect(() => {
+    if (location.pathname === "/favoritos") {
+      setValue("/favoritos")
+    } else {
+      setValue("/")
+    }
+  }, [location]);
 
   return (
     <BottomNavigation
       className={classes.root}
       value={value}
       onChange={(event, newValue) => {
-        setValue(newValue);
         history.push(newValue);
       }}
       showLabels
