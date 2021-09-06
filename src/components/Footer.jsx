@@ -24,9 +24,9 @@ export default () => {
 
   useEffect(() => {
     if (location.pathname === "/favoritos") {
-      setValue("/favoritos")
+      setValue("/favoritos");
     } else {
-      setValue("/")
+      setValue("/");
     }
   }, [location]);
 
