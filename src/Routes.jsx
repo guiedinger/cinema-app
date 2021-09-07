@@ -3,7 +3,6 @@ import {
   HashRouter as Router,
   Switch,
   Route,
-  Redirect
 } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -15,6 +14,7 @@ import Home from "./pages/Home";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+    paddingBottom: '56px',
   }
 }));
 
