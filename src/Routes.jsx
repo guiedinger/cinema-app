@@ -1,39 +1,36 @@
 import React from "react";
-import {
-  HashRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 import Toolbar from "./components/Toolbar";
 import Footer from "./components/Footer";
 import Favorites from "./pages/Favorites";
 import Home from "./pages/Home";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    paddingBottom: '56px',
-  }
+    paddingBottom: "56px",
+  },
 }));
 
-export default () => {
+export default ({ useDarkMode }) => {
   const classes = useStyles();
+
   return (
     <Router>
-      <Toolbar/>
+      <Toolbar useDarkMode={useDarkMode} />
       <Container maxWidth="md" className={classes.root}>
         <Switch>
           <Route exact path="/">
-            <Home/>
+            <Home />
           </Route>
           <Route path="/favoritos">
-            <Favorites/>
+            <Favorites />
           </Route>
         </Switch>
       </Container>
-      <Footer/>
+      <Footer />
     </Router>
-  )
-}
+  );
+};
